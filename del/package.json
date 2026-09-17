@@ -1,0 +1,12 @@
+{
+  "name": "solesphere-shoe-store",
+  "version": "1.0.0",
+  "description": "Modern, responsive e-commerce shoe store website for desktop and mobile",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["shoes", "ecommerce", "sneakers", "store", "tailwind"],
+  "author": "SoleSphere",
+  "license": "MIT"
+}

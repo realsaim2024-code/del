@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SoleSphere | Urban Kicks & Performance Footwear</title>
+  <meta name="description" content="Shop the freshest drops of sneakers, running shoes, and basketball footwear with fast shipping and 30-day wear trial.">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              900: '#881337',
+            }
+          },
+          screens: {
+            'xs': '480px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white pb-20 md:pb-0">
+
+  <!-- 1. Top Announcement / Promo Bar -->
+  <div class="bg-slate-950 text-slate-200 text-xs py-2 px-4 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-extrabold bg-rose-600 text-white tracking-wider uppercase">Flash Drop</span>
+        <span class="text-slate-300 font-medium truncate">Get 20% OFF using code <span class="font-bold text-white bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700">KICKS20</span> • Free shipping on orders over $100</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-slate-400 shrink-0 text-[11px]">
+        <span>🔥 30-Day Wear Guarantee</span>
+        <span>⚡ Express 48h Dispatch</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Sticky Glassmorphism Header -->
+  <header id="main-navbar" class="sticky top-0 z-40 glass-nav transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4 py-3.5">
+      
+      <!-- Left: Mobile Menu Trigger & Logo -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        <button 
+          onclick="openMobileMenu()" 
+          class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
+          aria-label="Open Mobile Menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shadow-md group-hover:bg-black transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-slate-950">Sole<span class="text-rose-600">Sphere</span></span>
+            <span class="text-[9px] tracking-widest uppercase font-bold text-slate-400 -mt-1 hidden sm:inline">Footwear Lab</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        <a href="#products-section" onclick="setCategoryFilter('All')" class="hover:text-rose-600 transition-colors">All Shoes</a>
+        <a href="#products-section" onclick="setCategoryFilter('Running')" class="hover:text-rose-600 transition-colors">Running</a>
+        <a href="#products-section" onclick="setCategoryFilter('Basketball')" class="hover:text-rose-600 transition-colors">Basketball</a>
+        <a href="#products-section" onclick="setCategoryFilter('Lifestyle')" class="hover:text-rose-600 transition-colors">Lifestyle</a>
+        <a href="#products-section" onclick="setBrandFilter('Nike')" class="hover:text-rose-600 transition-colors">Nike</a>
+        <a href="#products-section" onclick="setBrandFilter('Jordan')" class="hover:text-rose-600 transition-colors">Jordan</a>
+        <span class="px-2 py-0.5 text-xs font-extrabold text-rose-600 bg-rose-50 rounded-full border border-rose-200">Sale -20%</span>
+      </nav>
+
+      <!-- Right: Search Bar, Wishlist, Cart -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Desktop Search Bar -->
+        <div class="relative hidden sm:block w-48 md:w-64">
+          <input 
+            type="text" 
+            placeholder="Search sneakers, brands..." 
+            class="search-input w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-xs font-medium text-slate-900 rounded-full pl-9 pr-4 py-2 border border-transparent focus:border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900/10 transition-all"
+          />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+
+        <!-- Wishlist Button -->
+        <button 
+          onclick="openWishlistModal()" 
+          class="relative p-2.5 rounded-full text-slate-700 hover:bg-slate-100 transition-colors"
+          title="Wishlist"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          <span class="wishlist-badge hidden absolute -top-0.5 -right-0.5 w-5 h-5 bg-rose-500 text-white rounded-full text-[10px] font-bold items-center justify-center shadow-sm">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button 
+          onclick="openCartDrawer()" 
+          class="relative flex items-center gap-2 px-3 py-2 rounded-full bg-slate-900 hover:bg-black text-white font-bold text-xs transition-all shadow-md active:scale-95"
+          title="View Bag"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span class="hidden sm:inline">Bag</span>
+          <span class="cart-badge hidden w-5 h-5 bg-rose-500 text-white rounded-full text-[10px] font-bold items-center justify-center">0</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Search Bar (Appears under header on mobile) -->
+    <div class="sm:hidden px-4 pb-3">
+      <div class="relative w-full">
+        <input 
+          type="text" 
+          placeholder="Search shoes by name, brand, type..." 
+          class="search-input w-full bg-slate-100 text-xs font-medium text-slate-900 rounded-xl pl-9 pr-4 py-2.5 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/10 transition-all"
+        />
+        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Hero Showcase Section -->
+  <section class="relative overflow-hidden bg-slate-900 text-white pt-8 pb-16 sm:py-20 lg:py-24">
+    <!-- Glow Background Accents -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-10 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left space-y-5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-semibold text-rose-400">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            Spring 2026 Collection Dropped
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+            Step Into The Future of <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-orange-300 to-amber-300">Pure Performance.</span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl leading-relaxed">
+            Discover precision-engineered sneakers, basketball icons, and ultra-plush daily runners built to give you unmatched comfort and distinctive street presence.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
+            <a 
+              href="#products-section" 
+              class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white text-slate-900 hover:bg-slate-100 font-extrabold text-sm transition-all shadow-lg text-center flex items-center justify-center gap-2 active:scale-95"
+            >
+              Shop New Drops
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a 
+              href="#products-section" 
+              onclick="setCategoryFilter('Running')" 
+              class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700 transition-all text-center active:scale-95"
+            >
+              Explore Running
+            </a>
+          </div>
+
+          <!-- Proof Metrics -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 w-full max-w-lg">
+            <div>
+              <span class="block font-display text-xl sm:text-2xl font-black text-white">100%</span>
+              <span class="text-[11px] text-slate-400">Authentic Sneakers</span>
+            </div>
+            <div>
+              <span class="block font-display text-xl sm:text-2xl font-black text-white">4.9★</span>
+              <span class="text-[11px] text-slate-400">12k+ Reviews</span>
+            </div>
+            <div>
+              <span class="block font-display text-xl sm:text-2xl font-black text-white">30-Day</span>
+              <span class="text-[11px] text-slate-400">Wear Test Trial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Featured Shoe Visual Card -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <div class="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-slate-800 to-slate-800/40 p-6 border border-slate-700/60 shadow-2xl flex flex-col justify-between group">
+            
+            <div class="flex justify-between items-start z-10">
+              <span class="px-3 py-1 bg-rose-500 text-white text-xs font-extrabold uppercase rounded-full shadow-md">Featured Drop</span>
+              <span class="text-xs font-bold text-slate-300">Air VaporMax Pulse</span>
+            </div>
+
+            <!-- Floating Shoe Artwork -->
+            <div class="relative py-4 flex items-center justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" 
+                alt="Air VaporMax Flyknit Pulse" 
+                class="w-full h-auto object-contain transform -rotate-12 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700 drop-shadow-2xl"
+              />
+            </div>
+
+            <div class="flex items-center justify-between z-10 pt-4 border-t border-slate-700/50">
+              <div>
+                <span class="text-xs text-slate-400 block font-medium">Starting from</span>
+                <span class="text-xl font-extrabold text-white">$185.00</span>
+              </div>
+              <button 
+                onclick="openQuickView('shoe-1')" 
+                class="px-4 py-2 bg-white text-slate-900 rounded-xl text-xs font-bold hover:bg-slate-100 transition-colors shadow-sm"
+              >
+                Quick View
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Top Brands Bar -->
+  <section class="border-y border-slate-200 bg-white py-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-6 overflow-x-auto no-scrollbar py-1">
+        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 shrink-0">Official Brands:</span>
+        <button onclick="setBrandFilter('Nike')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">NIKE</button>
+        <button onclick="setBrandFilter('Adidas')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">ADIDAS</button>
+        <button onclick="setBrandFilter('Jordan')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">AIR JORDAN</button>
+        <button onclick="setBrandFilter('New Balance')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">NEW BALANCE</button>
+        <button onclick="setBrandFilter('Puma')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">PUMA</button>
+        <button onclick="setBrandFilter('Asics')" class="text-sm sm:text-base font-extrabold text-slate-600 hover:text-slate-950 transition-colors shrink-0">ASICS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Main Catalog & Store Section -->
+  <section id="products-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    
+    <!-- Category Pills Carousel -->
+    <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-6" id="category-pills">
+      <!-- Injected by filter.js -->
+    </div>
+
+    <!-- Active Filters Chips -->
+    <div id="active-filters-chips" class="mb-6 hidden">
+      <!-- Injected by filter.js -->
+    </div>
+
+    <!-- Catalog Controls Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 mb-8">
+      <div>
+        <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">Explore Catalog</h2>
+        <p id="product-count-display" class="text-xs sm:text-sm text-slate-500 mt-0.5">Loading collection...</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Mobile Filter Button -->
+        <button 
+          onclick="openMobileFilter()" 
+          class="lg:hidden flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-bold text-slate-800 shadow-sm hover:bg-slate-50 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+          Filters
+        </button>
+
+        <!-- Sort Select -->
+        <div class="relative flex-1 sm:flex-initial">
+          <select class="sort-select w-full appearance-none bg-white border border-slate-200 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 cursor-pointer">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="newest">Newest Drops</option>
+          </select>
+          <svg class="w-4 h-4 text-slate-500 absolute right-2.5 top-3 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout: Sidebar + Product Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Desktop Filters Sidebar -->
+      <aside class="hidden lg:block lg:col-span-3 sticky top-24 bg-white p-5 rounded-3xl border border-slate-200/80 shadow-xs space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <h3 class="font-bold text-slate-900 text-sm">Filters</h3>
+          <button onclick="resetAllFilters()" class="text-xs font-semibold text-rose-600 hover:text-rose-800 transition-colors">Reset</button>
+        </div>
+
+        <!-- Gender Filter -->
+        <div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Gender</span>
+          <div class="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-semibold">
+            <button data-gender="All" class="gender-filter-btn py-1.5 rounded-lg bg-slate-900 text-white transition-all">All</button>
+            <button data-gender="Men" class="gender-filter-btn py-1.5 rounded-lg text-slate-700 hover:text-slate-900 transition-all">Men</button>
+            <button data-gender="Women" class="gender-filter-btn py-1.5 rounded-lg text-slate-700 hover:text-slate-900 transition-all">Women</button>
+          </div>
+        </div>
+
+        <!-- Max Price Slider -->
+        <div>
+          <div class="flex justify-between items-center text-xs font-bold text-slate-800 mb-2">
+            <span class="text-slate-400 uppercase tracking-wider">Max Price</span>
+            <span class="price-slider-val text-slate-900 font-extrabold text-sm">$250</span>
+          </div>
+          <input type="range" min="80" max="250" step="5" value="250" class="price-slider w-full cursor-pointer h-1.5 bg-slate-200 rounded-lg">
+          <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+            <span>$80</span>
+            <span>$250</span>
+          </div>
+        </div>
+
+        <!-- Brands -->
+        <div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Brand</span>
+          <div class="brand-filter-container space-y-0.5 max-h-48 overflow-y-auto pr-1">
+            <!-- Injected by filter.js -->
+          </div>
+        </div>
+
+        <!-- Sizes Grid -->
+        <div>
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Shoe Size (US)</span>
+          <div class="size-filter-container grid grid-cols-4 gap-1.5">
+            <!-- Injected by filter.js -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Products Grid -->
+      <main class="lg:col-span-9">
+        <div id="products-grid" class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <!-- Injected by filter.js -->
+        </div>
+
+        <!-- No Results View -->
+        <div id="no-products-view" class="hidden py-16 text-center bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
+          <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-display text-lg font-bold text-slate-900">No Shoes Matched Your Filter</h3>
+          <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+            Try adjusting your search query, increasing your price limit, or removing size filters.
+          </p>
+          <button onclick="resetAllFilters()" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-black transition-all">
+            Clear All Filters
+          </button>
+        </div>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- 6. Features / Guarantees Section -->
+  <section class="bg-white border-y border-slate-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-600 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">Free Express Shipping</h4>
+            <p class="text-xs text-slate-500 mt-1">Enjoy complimentary express delivery on all orders over $100.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">100% Authentic Verified</h4>
+            <p class="text-xs text-slate-500 mt-1">Every pair undergoes our strict 12-point authentication protocol.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">30-Day Risk Free Trial</h4>
+            <p class="text-xs text-slate-500 mt-1">Wear them, test them, run in them. Return hassle-free if not in love.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-slate-900 text-sm">24/7 Footwear Care</h4>
+            <p class="text-xs text-slate-500 mt-1">Live footwear experts ready to help with sizing, fit, and recommendations.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Customer Reviews Section -->
+  <section class="py-14 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">Loved by 50,000+ Sneakerheads</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">Real reviews from runners, athletes, and street style enthusiasts worldwide.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            "The Air VaporMax Pulse feels like walking on energized clouds. Sizing recommendation was spot on, and delivery arrived in 2 days."
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-700 font-bold text-xs flex items-center justify-center">MK</div>
+            <div>
+              <span class="block text-xs font-bold text-slate-900">Marcus K.</span>
+              <span class="text-[10px] text-slate-400">Verified Buyer • New York</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            "SoleSphere is my go-to sneaker source. Authentic kicks, easy checkout, and the mobile site is exceptionally smooth to browse."
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center">SL</div>
+            <div>
+              <span class="block text-xs font-bold text-slate-900">Sarah Lin</span>
+              <span class="text-[10px] text-slate-400">Verified Buyer • London</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
+          <div class="flex text-amber-400 text-sm">★★★★★</div>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            "Got the Jordan 1 Heritage with the KICKS20 coupon. Saved 20% on a drop that was sold out everywhere else. Unmatched service!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center">DT</div>
+            <div>
+              <span class="block text-xs font-bold text-slate-900">David T.</span>
+              <span class="text-[10px] text-slate-400">Verified Buyer • Toronto</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Newsletter Banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-8 sm:p-12">
+      <div class="max-w-xl space-y-3 relative z-10">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-rose-400">Stay Ahead of The Drop</span>
+        <h3 class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight">Join SoleSphere VIP & Unlock 15% OFF</h3>
+        <p class="text-xs sm:text-sm text-slate-400">
+          Subscribe for secret drop alerts, restock notifications, and exclusive member-only discounts.
+        </p>
+        <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2.5 pt-2">
+          <input 
+            id="newsletter-email"
+            type="email" 
+            required 
+            placeholder="Enter your email address" 
+            class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500 flex-1"
+          />
+          <button 
+            type="submit" 
+            class="px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md shrink-0"
+          >
+            Claim 15% OFF
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Footer -->
+  <footer class="bg-white border-t border-slate-200 text-slate-600 pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-10 border-b border-slate-100">
+        
+        <!-- Brand Info -->
+        <div class="col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-white">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <span class="font-display font-extrabold text-lg text-slate-900">Sole<span class="text-rose-600">Sphere</span></span>
+          </div>
+          <p class="text-xs text-slate-500 max-w-sm leading-relaxed">
+            The premier online footwear sanctuary offering limited release sneakers, running gear, and urban streetwear classics.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-slate-400">
+            <span class="hover:text-slate-900 cursor-pointer text-xs font-bold">INSTAGRAM</span>
+            <span>•</span>
+            <span class="hover:text-slate-900 cursor-pointer text-xs font-bold">TWITTER / X</span>
+            <span>•</span>
+            <span class="hover:text-slate-900 cursor-pointer text-xs font-bold">TIKTOK</span>
+          </div>
+        </div>
+
+        <!-- Links 1 -->
+        <div>
+          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">Shop</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#products-section" onclick="setCategoryFilter('Running')" class="hover:text-slate-950 transition-colors">Running Shoes</a></li>
+            <li><a href="#products-section" onclick="setCategoryFilter('Basketball')" class="hover:text-slate-950 transition-colors">Basketball Kicks</a></li>
+            <li><a href="#products-section" onclick="setCategoryFilter('Lifestyle')" class="hover:text-slate-950 transition-colors">Lifestyle Classics</a></li>
+            <li><a href="#products-section" onclick="setCategoryFilter('Training')" class="hover:text-slate-950 transition-colors">Training & Gym</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2 -->
+        <div>
+          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">Support</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Order Tracking</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Size Guide & Chart</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">30-Day Returns</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 3 -->
+        <div>
+          <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">Company</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-slate-950 transition-colors">About SoleSphere</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Authenticity Check</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-slate-950 transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <p>© 2026 SoleSphere Inc. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold text-slate-600">VISA</span>
+          <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold text-slate-600">MASTERCARD</span>
+          <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold text-slate-600">APPLE PAY</span>
+          <span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold text-slate-600">PAYPAL</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. Sticky Mobile Bottom Navigation Bar (Mobile Thumb reach) -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 z-30 safe-bottom">
+    <div class="grid grid-cols-4 h-15 items-center">
+      
+      <!-- Home -->
+      <a href="#" class="flex flex-col items-center justify-center py-2 text-slate-700 hover:text-slate-950 active:scale-95 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        <span class="text-[10px] font-bold mt-1">Home</span>
+      </a>
+
+      <!-- Shop / Catalog -->
+      <a href="#products-section" class="flex flex-col items-center justify-center py-2 text-slate-700 hover:text-slate-950 active:scale-95 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <span class="text-[10px] font-bold mt-1">Shop</span>
+      </a>
+
+      <!-- Wishlist -->
+      <button onclick="openWishlistModal()" class="relative flex flex-col items-center justify-center py-2 text-slate-700 hover:text-slate-950 active:scale-95 transition-all">
+        <div class="relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          <span class="wishlist-badge hidden absolute -top-1 -right-2 w-4 h-4 bg-rose-500 text-white rounded-full text-[9px] font-bold items-center justify-center">0</span>
+        </div>
+        <span class="text-[10px] font-bold mt-1">Saved</span>
+      </button>
+
+      <!-- Cart Bag -->
+      <button onclick="openCartDrawer()" class="relative flex flex-col items-center justify-center py-2 text-slate-700 hover:text-slate-950 active:scale-95 transition-all">
+        <div class="relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span class="cart-badge hidden absolute -top-1 -right-2 w-4 h-4 bg-rose-500 text-white rounded-full text-[9px] font-bold items-center justify-center">0</span>
+        </div>
+        <span class="text-[10px] font-bold mt-1">Bag</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ================= MODALS & DRAWERS ================= -->
+
+  <!-- A. Slide-Out Shopping Cart Drawer -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none">
+    <!-- Backdrop -->
+    <div id="cart-backdrop" onclick="closeCartDrawer()" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 drawer-backdrop"></div>
+    
+    <!-- Drawer Panel -->
+    <div id="cart-drawer-panel" class="absolute right-0 inset-y-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full drawer-panel">
+      
+      <!-- Drawer Header -->
+      <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <h3 class="font-display font-extrabold text-lg text-slate-900">Your Shopping Bag</h3>
+          <span class="cart-badge hidden px-2 py-0.5 bg-slate-100 text-slate-900 rounded-full text-xs font-bold">0</span>
+        </div>
+        <button onclick="closeCartDrawer()" class="p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Free Shipping Goal Progress Bar -->
+      <div class="bg-slate-50 px-5 py-3 border-b border-slate-200/80">
+        <p id="free-shipping-text" class="text-xs font-semibold text-slate-700 mb-1.5">
+          Add $100 for <strong>FREE Delivery</strong>
+        </p>
+        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div id="free-shipping-progress" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Scroll Area -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3">
+        
+        <!-- Empty State -->
+        <div id="cart-empty-state" class="py-16 text-center space-y-3">
+          <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">Your Bag is Empty</h4>
+          <p class="text-xs text-slate-500 max-w-xs mx-auto">Looks like you haven't added any pairs to your cart yet.</p>
+          <button onclick="closeCartDrawer()" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-black transition-all">
+            Explore Footwear
+          </button>
+        </div>
+
+        <!-- Injected Items List -->
+        <div id="cart-items-container" class="space-y-3"></div>
+
+      </div>
+
+      <!-- Cart Summary Footer -->
+      <div id="cart-summary-section" class="border-t border-slate-200 p-4 sm:p-5 bg-slate-50/80 space-y-3">
+        
+        <!-- Promo Code Input -->
+        <div class="space-y-1.5">
+          <div class="flex gap-2">
+            <input 
+              id="promo-input" 
+              type="text" 
+              placeholder="Promo Code (e.g. KICKS20)" 
+              class="flex-1 uppercase bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 placeholder:normal-case placeholder:font-normal focus:outline-none focus:ring-2 focus:ring-slate-900/10"
+            />
+            <button 
+              onclick="applyPromoCode(document.getElementById('promo-input').value)" 
+              class="px-4 py-2 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-xl transition-all"
+            >
+              Apply
+            </button>
+          </div>
+          <!-- Applied Promo Tag -->
+          <div id="applied-promo-tag" class="hidden"></div>
+        </div>
+
+        <!-- Subtotal / Shipping / Total Lines -->
+        <div class="space-y-1 text-xs pt-1">
+          <div class="flex justify-between text-slate-600">
+            <span>Subtotal</span>
+            <span id="cart-subtotal" class="font-bold text-slate-900">$0.00</span>
+          </div>
+
+          <div id="cart-discount-row" class="hidden justify-between text-emerald-600 font-semibold">
+            <span>Discount</span>
+            <span id="cart-discount">-$0.00</span>
+          </div>
+
+          <div class="flex justify-between text-slate-600">
+            <span>Estimated Shipping</span>
+            <span id="cart-shipping" class="font-bold text-slate-900">$12.00</span>
+          </div>
+
+          <div class="flex justify-between text-slate-600">
+            <span>Estimated Tax (8%)</span>
+            <span id="cart-tax" class="font-bold text-slate-900">$0.00</span>
+          </div>
+
+          <div class="flex justify-between text-sm font-extrabold text-slate-950 pt-2 border-t border-slate-200">
+            <span>Total</span>
+            <span id="cart-grand-total" class="text-base font-black">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Checkout Action -->
+        <button 
+          onclick="openCheckoutModal()" 
+          class="w-full py-3.5 bg-rose-600 hover:bg-rose-700 text-white rounded-2xl font-bold text-sm transition-all shadow-lg hover:shadow-rose-500/25 flex items-center justify-center gap-2 active:scale-95"
+        >
+          <span>Proceed to Checkout</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- B. Quick View Product Modal -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 pointer-events-none flex items-center justify-center p-4 sm:p-6">
+    <!-- Backdrop -->
+    <div id="quickview-backdrop" onclick="closeQuickView()" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Modal Card -->
+    <div id="quickview-panel" class="relative bg-white w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 z-10 max-h-[90vh] flex flex-col md:flex-row">
+      
+      <!-- Close Button -->
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/80 hover:bg-slate-100 text-slate-600 transition-colors shadow-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Left: Image Showcase -->
+      <div class="md:w-1/2 bg-slate-50 p-6 flex flex-col justify-between items-center border-b md:border-b-0 md:border-r border-slate-200">
+        <div class="w-full flex-1 flex items-center justify-center p-4">
+          <img id="qv-image" src="" alt="Shoe Preview" class="max-h-56 sm:max-h-72 object-contain mix-blend-multiply transition-opacity duration-200" />
+        </div>
+        <!-- Thumbnails -->
+        <div id="qv-thumbnails" class="flex gap-2 mt-4"></div>
+      </div>
+
+      <!-- Right: Details & Purchase Options -->
+      <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+        <div class="space-y-4">
+          <div>
+            <span id="qv-brand" class="text-xs font-bold uppercase tracking-widest text-slate-400">BRAND</span>
+            <h3 id="qv-name" class="font-display text-xl sm:text-2xl font-bold text-slate-900 leading-snug">Shoe Name</h3>
+            <div class="flex items-center gap-2 mt-1">
+              <span id="qv-price" class="text-xl font-black text-slate-900">$0.00</span>
+              <span id="qv-original-price" class="text-xs text-slate-400 line-through font-semibold">$0.00</span>
+              <span id="qv-rating" class="text-xs text-slate-500 font-semibold ml-2">4.9 ★</span>
+            </div>
+          </div>
+
+          <p id="qv-description" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Description goes here.</p>
+
+          <!-- Key Features -->
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Key Highlights</span>
+            <ul id="qv-features" class="space-y-1"></ul>
+          </div>
+
+          <!-- Select Size -->
+          <div>
+            <div class="flex justify-between items-center text-xs font-bold mb-2">
+              <span class="text-slate-400 uppercase tracking-wider">Select Size (US)</span>
+              <span class="text-slate-900 text-[11px] underline cursor-pointer">Size Guide</span>
+            </div>
+            <div id="qv-sizes" class="grid grid-cols-4 sm:grid-cols-5 gap-1.5"></div>
+          </div>
+
+          <!-- Quantity -->
+          <div>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Quantity</span>
+            <div class="flex items-center gap-3">
+              <div class="flex items-center border border-slate-200 rounded-xl bg-white shadow-xs">
+                <button onclick="adjustQuickViewQty(-1)" class="w-8 h-8 flex items-center justify-center font-bold text-slate-600 hover:text-slate-900">-</button>
+                <span id="qv-quantity" class="w-8 text-center text-xs font-bold text-slate-900">1</span>
+                <button onclick="adjustQuickViewQty(1)" class="w-8 h-8 flex items-center justify-center font-bold text-slate-600 hover:text-slate-900">+</button>
+              </div>
+              <span class="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> In Stock & Ready to Ship
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add to Cart Action -->
+        <div class="pt-6 mt-4 border-t border-slate-100 flex gap-2">
+          <button 
+            onclick="addQuickViewToCart()" 
+            class="flex-1 py-3.5 bg-slate-900 hover:bg-black text-white text-xs sm:text-sm font-bold rounded-2xl transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            Add to Bag
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- C. Wishlist Modal -->
+  <div id="wishlist-modal" class="fixed inset-0 z-50 pointer-events-none flex items-center justify-center p-4 sm:p-6">
+    <!-- Backdrop -->
+    <div id="wishlist-backdrop" onclick="closeWishlistModal()" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Panel -->
+    <div id="wishlist-panel" class="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 z-10 flex flex-col max-h-[85vh]">
+      
+      <div class="p-5 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-rose-500 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+          <h3 class="font-display font-extrabold text-lg text-slate-900">Your Wishlist</h3>
+        </div>
+        <button onclick="closeWishlistModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5">
+        <!-- Empty State -->
+        <div id="wishlist-empty-state" class="py-12 text-center space-y-3">
+          <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mx-auto">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          </div>
+          <h4 class="font-bold text-slate-900 text-base">No Saved Sneakers</h4>
+          <p class="text-xs text-slate-500 max-w-xs mx-auto">Click the heart icon on any pair of shoes to save them for later.</p>
+        </div>
+
+        <div id="wishlist-items-container" class="space-y-3"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- D. Multi-Step Checkout Modal -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 pointer-events-none flex items-center justify-center p-3 sm:p-6">
+    <!-- Backdrop -->
+    <div id="checkout-backdrop" onclick="closeCheckoutModal()" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Panel -->
+    <div id="checkout-panel" class="relative bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 z-10 flex flex-col max-h-[92vh]">
+      
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
+        <div class="flex items-center gap-2">
+          <span class="text-base">🔒</span>
+          <h3 class="font-display font-extrabold text-base sm:text-lg text-slate-900">Secure Footwear Checkout</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Steps Indicator -->
+      <div id="checkout-steps-bar" class="px-6 py-3 bg-white border-b border-slate-100 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span id="step-indicator-1" class="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-bold">1</span>
+          <span class="text-xs font-semibold text-slate-900">Shipping</span>
+        </div>
+        <div class="h-0.5 flex-1 bg-slate-200 mx-3"></div>
+        <div class="flex items-center gap-2">
+          <span id="step-indicator-2" class="w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold">2</span>
+          <span class="text-xs font-semibold text-slate-500">Delivery</span>
+        </div>
+        <div class="h-0.5 flex-1 bg-slate-200 mx-3"></div>
+        <div class="flex items-center gap-2">
+          <span id="step-indicator-3" class="w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold">3</span>
+          <span class="text-xs font-semibold text-slate-500">Payment</span>
+        </div>
+      </div>
+
+      <!-- Step Content Body (Scrollable) -->
+      <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4">
+        
+        <!-- STEP 1: Shipping Info -->
+        <div id="checkout-step-1" class="space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">Contact & Shipping Details</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Full Name *</label>
+              <input id="checkout-name" type="text" value="Alex Rivera" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Email Address *</label>
+              <input id="checkout-email" type="email" value="alex.rivera@example.com" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-slate-600 mb-1">Street Address *</label>
+            <input id="checkout-address" type="text" value="742 Evergreen Terrace" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div class="col-span-1">
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">City</label>
+              <input id="checkout-city" type="text" value="Springfield" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+            </div>
+            <div class="col-span-1">
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">ZIP / Postal</label>
+              <input id="checkout-zip" type="text" value="97477" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+            </div>
+            <div class="col-span-1">
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Country</label>
+              <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-2 text-xs font-medium focus:bg-white focus:outline-none">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Shipping Options -->
+        <div id="checkout-step-2" class="hidden space-y-3">
+          <h4 class="text-sm font-bold text-slate-900">Select Delivery Method</h4>
+
+          <label class="flex items-center justify-between p-3.5 border-2 border-slate-900 rounded-2xl cursor-pointer bg-slate-50/80">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="shipping_option" value="standard" checked class="w-4 h-4 text-slate-900 accent-slate-900">
+              <div>
+                <span class="block text-xs font-bold text-slate-900">Standard Delivery (3-5 Business Days)</span>
+                <span class="text-[11px] text-slate-500">Tracked shipping with insurance</span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-emerald-600">FREE</span>
+          </label>
+
+          <label class="flex items-center justify-between p-3.5 border border-slate-200 rounded-2xl cursor-pointer hover:border-slate-300 transition-colors">
+            <div class="flex items-center gap-3">
+              <input type="radio" name="shipping_option" value="express" class="w-4 h-4 text-slate-900 accent-slate-900">
+              <div>
+                <span class="block text-xs font-bold text-slate-900">Priority Express (1-2 Business Days)</span>
+                <span class="text-[11px] text-slate-500">Dispatched immediately via DHL Air</span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-slate-900">$12.00</span>
+          </label>
+        </div>
+
+        <!-- STEP 3: Payment Simulation -->
+        <div id="checkout-step-3" class="hidden space-y-4">
+          <h4 class="text-sm font-bold text-slate-900">Payment Method</h4>
+
+          <!-- Interactive Card Preview Box -->
+          <div class="p-5 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 text-white shadow-lg space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-mono tracking-widest text-slate-300">CREDIT CARD</span>
+              <span class="text-xs font-bold text-amber-300">VISA</span>
+            </div>
+            <div class="text-base font-mono tracking-wider">•••• •••• •••• 4242</div>
+            <div class="flex justify-between items-end text-xs">
+              <div>
+                <span class="text-[9px] text-slate-400 uppercase block">Card Holder</span>
+                <span class="font-bold">Alex Rivera</span>
+              </div>
+              <div>
+                <span class="text-[9px] text-slate-400 uppercase block">Expires</span>
+                <span class="font-bold">12 / 28</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Card Number</label>
+              <input type="text" value="4242 •••• •••• 4242" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-medium">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Expiration</label>
+                <input type="text" value="12/28" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-medium">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">CVC Code</label>
+                <input type="text" value="789" readonly class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-medium">
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex items-center gap-2">
+            <span>🛡️</span>
+            <span>256-Bit Encrypted Simulation. No actual card will be charged.</span>
+          </div>
+        </div>
+
+        <!-- Order Summary Box inside checkout -->
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 space-y-2">
+          <span class="text-xs font-bold text-slate-700 block">Order Overview</span>
+          <div id="checkout-items-preview" class="max-h-28 overflow-y-auto"></div>
+          
+          <div class="pt-2 border-t border-slate-200 space-y-1 text-xs">
+            <div class="flex justify-between text-slate-600">
+              <span>Items Total</span>
+              <span id="checkout-summary-subtotal" class="font-bold text-slate-900">$0.00</span>
+            </div>
+            <div id="checkout-summary-discount-row" class="hidden justify-between text-emerald-600 font-semibold">
+              <span>Promo Discount</span>
+              <span id="checkout-summary-discount">-$0.00</span>
+            </div>
+            <div class="flex justify-between text-slate-600">
+              <span>Shipping</span>
+              <span id="checkout-summary-shipping" class="font-bold text-slate-900">FREE</span>
+            </div>
+            <div class="flex justify-between text-sm font-extrabold text-slate-950 pt-1 border-t border-slate-200">
+              <span>Final Total</span>
+              <span id="checkout-summary-total" class="font-black text-rose-600">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUCCESS CONFIRMATION STATE -->
+        <div id="checkout-step-success" class="hidden py-8 text-center space-y-4 relative">
+          <!-- Confetti emitter canvas -->
+          <div id="confetti-canvas" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-md">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+
+          <h3 class="font-display text-2xl font-black text-slate-900">Order Confirmed! 🎉</h3>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
+            Thank you for shopping with SoleSphere! We are prepping your shoes for dispatch.
+          </p>
+
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 max-w-sm mx-auto text-left text-xs space-y-1.5">
+            <div class="flex justify-between">
+              <span class="text-slate-500">Order Reference:</span>
+              <strong id="success-order-id" class="text-slate-900 font-mono">SS-892184</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Tracking sent to:</span>
+              <strong id="success-order-email" class="text-slate-900 truncate">alex.rivera@example.com</strong>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">Estimated Delivery:</span>
+              <strong class="text-slate-900">3 - 5 Days</strong>
+            </div>
+          </div>
+
+          <button onclick="closeCheckoutModal()" class="px-7 py-3 bg-slate-900 hover:bg-black text-white rounded-xl text-xs font-bold transition-all shadow-md">
+            Continue Shopping
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Checkout Modal Actions Footer -->
+      <div id="checkout-modal-actions" class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between">
+        <button 
+          id="checkout-back-btn" 
+          onclick="prevCheckoutStep()" 
+          class="hidden px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+        >
+          ← Back
+        </button>
+        <button 
+          id="checkout-next-btn" 
+          onclick="nextCheckoutStep()" 
+          class="ml-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition-all shadow-md flex items-center gap-1.5"
+        >
+          Continue to Shipping →
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- E. Mobile Menu Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 pointer-events-none lg:hidden">
+    <div id="mobile-menu-backdrop" onclick="closeMobileMenu()" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 drawer-backdrop"></div>
+    <div id="mobile-menu-panel" class="absolute left-0 inset-y-0 w-4/5 max-w-xs bg-white shadow-2xl flex flex-col transform -translate-x-full drawer-panel p-6 justify-between">
+      
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-slate-900 flex items-center justify-center text-white">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <span class="font-display font-extrabold text-base text-slate-950">Sole<span class="text-rose-600">Sphere</span></span>
+          </div>
+          <button onclick="closeMobileMenu()" class="p-1.5 text-slate-400 hover:text-slate-700">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-3 text-sm font-bold text-slate-800">
+          <a href="#products-section" onclick="setCategoryFilter('All'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">All Sneakers</a>
+          <a href="#products-section" onclick="setCategoryFilter('Running'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">Running</a>
+          <a href="#products-section" onclick="setCategoryFilter('Basketball'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">Basketball</a>
+          <a href="#products-section" onclick="setCategoryFilter('Lifestyle'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">Lifestyle</a>
+          <a href="#products-section" onclick="setBrandFilter('Nike'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">Nike Collection</a>
+          <a href="#products-section" onclick="setBrandFilter('Jordan'); closeMobileMenu();" class="p-2 rounded-xl hover:bg-slate-100 transition-colors">Jordan Drops</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-slate-100 space-y-3">
+        <div class="text-xs text-slate-500">
+          Need assistance? Talk to a shoe expert 24/7.
+        </div>
+        <a href="tel:+18005557653" class="block w-full py-2.5 text-center text-xs font-bold rounded-xl bg-slate-100 text-slate-800">
+          📞 1-800-SOLE-KICKS
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- F. Mobile Filter Bottom Drawer -->
+  <div id="mobile-filter-drawer" class="fixed inset-0 z-50 pointer-events-none lg:hidden flex flex-col justify-end">
+    <div id="mobile-filter-backdrop" onclick="closeMobileFilter()" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 drawer-backdrop"></div>
+    <div id="mobile-filter-panel" class="relative bg-white w-full rounded-t-3xl shadow-2xl p-6 transform translate-y-full drawer-panel max-h-[85vh] overflow-y-auto space-y-5">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="font-display font-extrabold text-base text-slate-900">Filter Sneakers</h3>
+        <button onclick="closeMobileFilter()" class="p-1.5 text-slate-400 hover:text-slate-700">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Gender Filter -->
+      <div>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Gender</span>
+        <div class="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-xl text-xs font-semibold">
+          <button data-gender="All" class="gender-filter-btn py-2 rounded-lg bg-slate-900 text-white transition-all">All</button>
+          <button data-gender="Men" class="gender-filter-btn py-2 rounded-lg text-slate-700 hover:text-slate-900 transition-all">Men</button>
+          <button data-gender="Women" class="gender-filter-btn py-2 rounded-lg text-slate-700 hover:text-slate-900 transition-all">Women</button>
+        </div>
+      </div>
+
+      <!-- Max Price Slider -->
+      <div>
+        <div class="flex justify-between items-center text-xs font-bold text-slate-800 mb-2">
+          <span class="text-slate-400 uppercase tracking-wider">Max Price</span>
+          <span class="price-slider-val text-slate-900 font-extrabold text-sm">$250</span>
+        </div>
+        <input type="range" min="80" max="250" step="5" value="250" class="price-slider w-full cursor-pointer h-2 bg-slate-200 rounded-lg">
+      </div>
+
+      <!-- Brands -->
+      <div>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Brands</span>
+        <div class="brand-filter-container space-y-1 max-h-36 overflow-y-auto"></div>
+      </div>
+
+      <!-- Sizes Grid -->
+      <div>
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Sizes (US)</span>
+        <div class="size-filter-container grid grid-cols-4 gap-1.5"></div>
+      </div>
+
+      <div class="pt-3 flex gap-2">
+        <button onclick="resetAllFilters(); closeMobileFilter();" class="w-1/3 py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-700">
+          Reset
+        </button>
+        <button onclick="closeMobileFilter()" class="w-2/3 py-3 rounded-xl bg-slate-900 text-white text-xs font-bold">
+          Apply Filters
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Stack Container -->
+  <div id="toast-container" class="fixed top-5 right-5 sm:right-6 z-50 flex flex-col gap-2 items-end"></div>
+
+  <!-- Application Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
